@@ -1,4 +1,4 @@
-## 🚕 Uber Demo Backend API
+# 🚕 Uber Demo Backend API
 
 Spring Boot + MongoDB + JWT Authentication
 
@@ -107,7 +107,7 @@ http://localhost:8081/api/auth/login
 }
 ```
 
-✅ Copy the returned **JWT Token**
+👉 Copy the returned **JWT Token**
 
 
 
@@ -132,7 +132,7 @@ Content-Type: application/json
 }
 ```
 
-✅ Ride created with status `REQUESTED`
+👉 Ride created with status `REQUESTED`
 
 <img width="455" height="285" alt="Screenshot 2025-12-07 at 9 43 52 PM" src="https://github.com/user-attachments/assets/b7be1cb9-f182-4a71-910f-ae1fbcff7449" />
 
@@ -150,7 +150,7 @@ http://localhost:8081/api/v1/driver/rides/requests
 Authorization: Bearer <DRIVER_TOKEN>
 ```
 
-✅ Returns all `REQUESTED` rides
+👉 Returns all `REQUESTED` rides
 
 <img width="431" height="281" alt="Screenshot 2025-12-07 at 9 43 46 PM" src="https://github.com/user-attachments/assets/d1f5aa67-c3ca-4b74-91aa-1d96fadee14d" />
 
@@ -168,7 +168,7 @@ http://localhost:8081/api/v1/driver/rides/{rideId}/accept
 Authorization: Bearer <DRIVER_TOKEN>
 ```
 
-✅ Ride status becomes `ACCEPTED`
+👉 Ride status becomes `ACCEPTED`
 
 <img width="440" height="267" alt="Screenshot 2025-12-07 at 9 43 40 PM" src="https://github.com/user-attachments/assets/8c351799-51a5-4b5b-aefb-3ab08b869a2f" />
 
@@ -186,7 +186,7 @@ http://localhost:8081/api/v1/rides/{rideId}/complete
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
 
-✅ Ride status becomes `COMPLETED`
+👉 Ride status becomes `COMPLETED`
 
 <img width="508" height="292" alt="Screenshot 2025-12-07 at 10 00 09 PM" src="https://github.com/user-attachments/assets/e87374fc-04ac-45bc-8c19-afc8b6a24638" />
 
@@ -204,7 +204,7 @@ http://localhost:8081/api/v1/rides/user/{userId}
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
 
-✅ Response: 200 OK (Working)
+👉 Response: 200 OK (Working)
 
 ### ✅ 9. Get User Rides by Status
 
@@ -217,7 +217,7 @@ http://localhost:8081/api/v1/rides/user/{userId}/status/{status}
 ```http
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
-✅ Response: 200 OK (Working)
+👉 Response: 200 OK (Working)
 
 ### ✅ 10. Driver Active Rides
 
@@ -230,7 +230,7 @@ http://localhost:8081/api/v1/driver/{driverId}/active-rides
 ```http
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
-✅ Response: 200 OK (Working)
+👉 Response: 200 OK (Working)
 
 ### ✅ 11. Filter by Status + Keyword
 
@@ -272,7 +272,7 @@ http://localhost:8081/api/v1/rides/sort?order=desc
 ```http
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
-✅ Response: 200 OK (Working)
+👉 Response: 200 OK (Working)
 
 
 ### ✅ 14. Filter Rides by Distance
@@ -382,7 +382,7 @@ http://localhost:8081/api/v1/rides/date/{date}
 ```http
 Authorization: Bearer <ANY_VALID_TOKEN>
 ```
-✅ Response: 200 OK (Working)
+👉 Response: 200 OK (Working)
 
 
 ## 🛠 Tech Stack
