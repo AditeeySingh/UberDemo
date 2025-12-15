@@ -13,7 +13,7 @@ It supports:
 	•	Advanced ride search & filtering
 	•	Analytics using MongoDB Aggregation
 
-⸻
+
 
 🔐 Authentication Flow
 	1.	User or Driver registers
