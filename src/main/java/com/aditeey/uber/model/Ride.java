@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.time.LocalDate;
 
 @Document(collection = "rides")
 public class Ride {
@@ -16,6 +17,10 @@ public class Ride {
 
     private String pickupLocation;
     private String dropLocation;
+
+    private Double fareAmount;     // for sorting & analytics
+    private Double distanceKm;     // for distance filtering
+    private LocalDate createdDate; // for date range queries
 
     private String status;     // REQUESTED, ACCEPTED, COMPLETED
 

@@ -1,15 +1,21 @@
 package com.aditeey.uber.service;
 
-import com.aditeey.uber.dto.LoginRequest;
 import com.aditeey.uber.dto.RegisterRequest;
 import com.aditeey.uber.model.User;
 import com.aditeey.uber.repository.UserRepository;
 import com.aditeey.uber.util.JwtUtil;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
-public class AuthService {
+public class AuthService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -23,27 +29,34 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
-    public void register(RegisterRequest req) {
-        if (userRepository.existsByUsername(req.getUsername())) {
-            throw new RuntimeException("Username already exists");
-        }
-
-        User u = new User();
-        u.setUsername(req.getUsername());
-        u.setPassword(passwordEncoder.encode(req.getPassword()));
-        u.setRole(req.getRole());
-
-        userRepository.save(u);
+    // REGISTER
+    public User register(RegisterRequest request) {
+        User user = new User();
+        user.setUsername(request.getUsername());
+        user.setPassword(passwordEncoder.encode(request.getPassword()));
+        user.setRole(request.getRole());
+        return userRepository.save(user);
     }
 
-    public String login(LoginRequest req) {
-        User user = userRepository.findByUsername(req.getUsername())
-                .orElseThrow(() -> new RuntimeException("Invalid username or password"));
+    // TOKEN GENERATION ONLY (NO AuthenticationManager here)
+    public Map<String, String> generateToken(String username, String role) {
+        String token = jwtUtil.generateToken(username, role);
+        return Map.of("token", token);
+    }
 
-        if (!passwordEncoder.matches(req.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid username or password");
-        }
+    // SPRING SECURITY
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
 
-        return jwtUtil.generateToken(user.getUsername(), user.getRole());
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() ->
+                        new UsernameNotFoundException("User not found"));
+
+        return new org.springframework.security.core.userdetails.User(
+                user.getUsername(),
+                user.getPassword(),
+                List.of(new SimpleGrantedAuthority(user.getRole()))
+        );
     }
 }
