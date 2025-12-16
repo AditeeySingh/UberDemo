@@ -1,17 +1,20 @@
 # 🚕 Uber Demo Backend API
 
-Spring Boot + MongoDB + JWT Authentication
+**Spring Boot + MongoDB + JWT Authentication**
 
-This project is a backend REST API for a mini Ride Sharing application built using Spring Boot, MongoDB, and JWT Authentication.
+This project is a backend REST API for a mini **Ride Sharing application** built using **Spring Boot**, **MongoDB**, and **JWT Authentication**.
 
-It supports:
-	•	User & Driver authentication
-	•	Ride booking by User
-	•	Ride request viewing by Driver
-	•	Ride accepting by Driver
-	•	Ride completion by User or Driver
-	•	Advanced ride search & filtering
-	•	Analytics using MongoDB Aggregation
+
+
+## 🚀 What This Project Supports
+
+- User & Driver authentication  
+- Ride booking by User  
+- Ride request viewing by Driver  
+- Ride accepting by Driver  
+- Ride completion by User or Driver  
+- Advanced ride search & filtering  
+- Analytics using MongoDB Aggregation  
 
 
 
@@ -25,34 +28,33 @@ Authorization: Bearer <your_token_here>
 
 
 
-✅ Features Implemented
+## ✅ Features Implemented
 
-🔑 Authentication & Security
-	-	✅ JWT Login & Register
-	-	✅ Password encryption using BCrypt
-	-	✅ Role-based access control (USER / DRIVER)
-	-	✅ Spring Security filters
+### 🔑 Authentication & Security
+- ✅ JWT Login & Register  
+- ✅ Password encryption using BCrypt  
+- ✅ Role-based access control (USER / DRIVER)  
+- ✅ Spring Security filters  
 
-🚗 Ride Management
-	-	✅ Create Ride (USER)
-	-	✅ View Pending Rides (DRIVER)
-	-	✅ Accept Ride (DRIVER)
-	-	✅ Complete Ride (USER / DRIVER)
+### 🚗 Ride Management
+- ✅ Create Ride (USER)  
+- ✅ View Pending Rides (DRIVER)  
+- ✅ Accept Ride (DRIVER)  
+- ✅ Complete Ride (USER / DRIVER)  
 
-🔍 Advanced Search & Filters
-	-	✅ Search rides by pickup/drop keyword
-	-	✅ Filter rides by distance range
-	-	✅ Filter rides by date range
-	-	✅ Filter rides by status
-	-	✅ Combined filters (status + keyword)
-	-	✅ Sorting by fare (asc / desc)
-	-	✅ Pagination support
+### 🔍 Advanced Search & Filters
+- ✅ Search rides by pickup/drop keyword  
+- ✅ Filter rides by distance range  
+- ✅ Filter rides by date range  
+- ✅ Filter rides by status  
+- ✅ Combined filters (status + keyword)  
+- ✅ Sorting by fare (asc / desc)  
+- ✅ Pagination support  
 
-📊 Analytics (MongoDB Aggregation)
-	-	✅ Rides per day
-	-	✅ Driver summary (total rides, total fare)
-	-	✅ Status summary
-
+### 📊 Analytics (MongoDB Aggregation)
+- ✅ Rides per day  
+- ✅ Driver summary (total rides, total fare)  
+- ✅ Status summary  
 
 
 ## 🧪 API Testing Steps (Postman)
